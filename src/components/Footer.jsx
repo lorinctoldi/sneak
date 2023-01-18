@@ -46,7 +46,7 @@ const FooterElement = styled.footer`
         margin-top: 6px;
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 767px) {
         display: none;
     }
 `

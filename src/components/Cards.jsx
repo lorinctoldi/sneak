@@ -31,7 +31,7 @@ const Controls = styled.div`
         width: 14px
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 767px) {
         display: none;
     }
 `
@@ -59,7 +59,7 @@ const Card = styled.div`
     padding-left: 8px;
     float: left;
 
-    @media (max-width: 750px) {
+    @media (max-width: 767px) {
         width: 85% 
     }
 `
@@ -162,7 +162,7 @@ const Content = styled.div`
         margin: 0 0 19.44444px;
         margin-bottom: 0;
 
-        @media (max-width: 750px) {
+        @media (max-width: 767px) {
             font-size: 22px;
         }
     }
