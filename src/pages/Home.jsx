@@ -6,15 +6,11 @@ import VideoSource from '../assets/video/video.mp4'
 import { Cards, Footer } from '../components'
 
 const Grid = styled.div`
-  list-style: none;
   margin: 0;
   padding: 0;
 `
 
 const GridInner = styled.div`
-  list-style: none;
-  box-sizing: border-box;
-  display: inherit;
   height: 80vh;
   display: flex;
 
@@ -24,18 +20,11 @@ const GridInner = styled.div`
 `
 
 const GridItem = styled.div`
-  list-style: none;
-  box-sizing: border-box;
-  float: left;
   width: 50%;
-  height: 100%;
-  padding-left: 8px;
-  padding-top: 8px;
-  clear: both;
+  padding: 8px 8px 0 8px;
 
   @media (max-width: 767px) {
     width: 100%;
-    padding-right: 8px;
 
     &:nth-child(2) {
       display: none;
@@ -49,8 +38,6 @@ const Intro = styled.div`
   justify-content: center;
   background-color: #fff;
   height: 100%;
-  width: 100%;
-  border-radius: 6px;
 `
 
 const IntroInner = styled.div`
@@ -61,34 +48,22 @@ const IntroInner = styled.div`
 
   h1 {
     color: #000;
-    display: block;
-    position: relative;
-    left: 0px;
     text-align: center;
     padding: 10px 0px 0px;
     font-size: 32px;
     line-height: 40px;
     margin-bottom: 24px;
-    letter-spacing: -0.2px;
     font-family: RecklessNeue-Book;
-    font-weight: 400;
   }
 `
 
 const Logo = styled.div`
   position: relative;
   width: 140px;
-  margin: 0 auto;
-  margin-bottom: 2px;
-  z-index: 10;
+  margin: 0 auto 2px auto;
 
   @media (max-width: 767px) {
-    box-sizing: border-box;
     width: 50px;
-    position: relative;
-    margin: 0 auto;
-    margin-bottom: 2px;
-    z-index: 10;
   }
 `
 
@@ -107,61 +82,32 @@ const Buttons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  padding: 0;
-  font-family: Dia-Regular, Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  max-width: 100vw;
-  overflow: hidden;
   flex-direction: column;
 `
 
 const Button = styled.div`
   display: inline-block;
-  margin: 0 4px;    
+  margin: 0 4px 10px 4px;    
   width: 100%;
-  background: #fff;
   border-radius: 6px;
-  margin-bottom: 10px;
 
   li {
-    width: auto;
     font-size: 15px;
-    font-family: Dia-Regular, Arial, Helvetica, sans-serif;
-    text-transform: none;
     letter-spacing: -0.1px;
     background: #fff;
     border: 1px solid #e4e4e4;
     border-radius: 6px;
     color: #000;
-    font-weight: 400;
     padding: 9px 16px 8px 22px;
     line-height: 21px;
-    text-align: center;
-    display: block;
-    position: relative;
     transition: all 0.3s;
     cursor: pointer;
+    text-align: center;
   }
 
   @media (max-width: 767px) {
     li {
-      width: auto;
-      font-size: 15px;
-      font-family: Dia-Regular, Arial, Helvetica, sans-serif;
-      text-transform: none !Important;
-      letter-spacing: -0.1px !important;
-      border-radius: 6px;
-      color: #000;
-      font-weight: 400;
-      line-height: 21px;
-      text-align: center;
-      display: block;
-      position: relative;
-      transition: all 0.3s;
       border: 0;
-      background: #fff;
-      padding: 14px 14px 14px 22px!Important;
       width: calc(100vw - 40px);
     }
   }
@@ -181,7 +127,6 @@ const Select = styled.div`
     border-radius: 60px;
     margin-top: 8px;
     margin-left: 16px;
-    transition: all 0.3s;
   }
 
   &:hover::after {
@@ -196,8 +141,6 @@ const Select = styled.div`
 `
 
 const MobileLogo = styled.div`
-  list-style: none;
-  box-sizing: border-box;
   display: none;
 
   @media (max-width: 767px) {
@@ -208,34 +151,22 @@ const MobileLogo = styled.div`
 const VideoContainer = styled.div`
   width: 100%;
   background-repeat: no-repeat;
+  background-size: cover;    
+  background-position: center;
   background-size: cover;
-  background: #f0eeed;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   background: #f0eeed;
   height: 100%;
-  overflow: hidden;
-  padding: 0;
   position: relative;
   border-radius: 6px;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  padding: 0;
 
   @media (max-width: 767px) {
-    background: url(//cdn.shopify.com/s/files/1/0493/5663/6318/files/mobile-home_1080x1080.webp?v=1658071680);
-    background-position: center;
-    background-size: cover;
-    display: flex;
     align-items: center;
     justify-content: center;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    height: 100%;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    border-radius: 6px;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
     background: url( //cdn.shopify.com/s/files/1/0493/5663/6318/files/mobile-home_1080x1080.webp?v=1658071680);
   }
 `
@@ -245,11 +176,6 @@ const Video = styled.video`
   right: 0; 
   bottom: 0;
   min-width: 100%; 
-  width: auto; 
-  height: auto; 
-  z-index: -100;
-  background-size: cover;
-  overflow: hidden;
 
   @media (max-width: 767px) {
     display: none;
