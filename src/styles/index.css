@@ -16,6 +16,82 @@
     src: url("../assets/fonts/Dia-Bold.woff") format("woff");
 }
 
+@font-face {
+    font-display: swap;
+    font-family: 'DuttiW-Medium';
+    src: url("../assets/fonts/DuttiW-Medium.woff2") format("woff2"),url("../assets/fonts/DuttiW-Medium.woff") format("woff")
+}
+
+@font-face {
+    font-family: dutti-daily-regular;
+    src: url("../assets/fonts/dutti-daily-regular.woff2") format("woff2"),url("../assets/fonts/dutti-daily-regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: dutti-daily-bold;
+    src: url("../assets/fonts/dutti-daily-bold.woff2") format("woff2"),url("../assets/fonts/dutti-daily-bold.woff") format("woff")
+}
+
+@font-face {
+    font-family: dutti-extended-extrabold;
+    src: url("../assets/fonts/dutti-extended-extrabold.woff2") format("woff2"),url("../assets/fonts/dutti-extended-extrabold.woff") format("woff")
+}
+
+
+@keyframes appearmdmenu {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1
+    }
+}
+
+@keyframes showmdmenu {
+    0% {
+        visibility: visible;
+        opacity: 0
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1
+    }
+}
+
+@keyframes showCategoryList {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translateX(-40px)
+    }
+
+    to {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1
+    }
+}
+
+@keyframes hideCategoryList {
+    0% {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0)
+    }
+
+    to {
+        transform: translateX(40px);
+        visibility: visible;
+        opacity: 0;
+    }
+}
+
 body {
     margin: 0;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -41,7 +117,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin: 0 0 17.5px;
     font-family: Dia-Regular, Arial, Helvetica, sans-serif;
     font-style: var(--font-style-header);
-    font-weight: var(--font-weight-header);
+    font-weight: 400;
     line-height: 1.2;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -101,4 +177,24 @@ a {
 img {
     max-width: 100%;
     border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.search-icon {
+    padding-right: 16px;
+}
+
+
+@media only screen and (max-width: 767px){  
+    .search-icon {
+        padding-right: 0;
+    }
 }
