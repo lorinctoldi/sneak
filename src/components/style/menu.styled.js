@@ -9,6 +9,9 @@ export const MenuContainer = styled.div`
     width: 100vw;
     min-height: 100vh;
     background: rgb(255,255,255);
+    animation-timing-function: cubic-bezier(.165,.84,.44,1);
+    animation: .5s ease forwards;
+
 `
 
 export const MenuInner = styled.div`
@@ -25,7 +28,6 @@ export const Left = styled.div`
     padding-right: 32px;
     z-index: 1;
     min-width: 336px;
-    overflow-y: hidden;
 
     @media (max-width: 991px) {
         width: 100%;    
@@ -95,7 +97,7 @@ export const LeftTopOptions = styled.div`
     flex-direction: row;
     align-content: center;
     align-items: center;
-
+    
     div {
         margin: 0;
         border: 0;
@@ -110,6 +112,7 @@ export const LeftTopOptions = styled.div`
         color: #292929;
         text-transform: uppercase;
         cursor: pointer;
+        
     }
 
     span {
@@ -136,6 +139,7 @@ export const LeftBottom = styled.div`
     overflow: auto;
     animation: appearmdmenu .5s ease forwards;
     animation-timing-function: cubic-bezier(.165,.84,.44,1);
+    
 
     ul {
         border: 0;
@@ -152,6 +156,7 @@ export const LeftBottom = styled.div`
         width: max-content;
         animation-timing-function: cubic-bezier(.165,.84,.44,1);
         pointer-events: all;
+        
     }
 
     li {
@@ -167,6 +172,7 @@ export const LeftBottom = styled.div`
         transition: all 300ms;
         position: relative;
         display: flex;
+        
     }
 
     li:hover {
@@ -188,7 +194,7 @@ export const LeftBottomOptions = styled.div`
     display: none;
     max-height: 0;
     overflow: hidden;
-    overflow-y: hidden;
+    
 
     ul {
         padding: 0;
@@ -232,6 +238,7 @@ export const Right = styled.div`
     width: 100%;
     animation: showmdmenu 1s ease forwards;
     animation-timing-function: cubic-bezier(.165,.84,.44,1);
+    
 
     @media (max-width: 991px) {
         width: 0;

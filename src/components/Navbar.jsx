@@ -1,15 +1,18 @@
 import React from 'react'
+import { useState } from 'react'
 
 import Menu from './Menu'
 
 import { Nav, Left, Center, Right, SmallIcon, BasketCounter, SearchIcon } from './style/navbar.styled'
 
 const Navbar = () => {
+
+    const [menuStatus, setMenuStatus] = useState(false)
   return (
     <>
-        <Menu />
-        <Nav>
-            <Left>
+        <Menu menuStatus={menuStatus} setMenuStatus={setMenuStatus} />
+        <Nav style={{opacity: menuStatus ? 0 : 1, transition: 'all 700ms'}}>
+            <Left onClick={() => setMenuStatus(!menuStatus)} >
                 <div>
                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M1.5 2.81885C1.5 2.54271 1.72386 2.31885 2 2.31885H14C14.2761 2.31885 14.5 2.54271 14.5 2.81885C14.5 3.09499 14.2761 3.31885 14 3.31885H2C1.72386 3.31885 1.5 3.09499 1.5 2.81885ZM1.5 8.31885C1.5 8.04271 1.72386 7.81885 2 7.81885H14C14.2761 7.81885 14.5 8.04271 14.5 8.31885C14.5 8.59499 14.2761 8.81885 14 8.81885H2C1.72386 8.81885 1.5 8.59499 1.5 8.31885ZM1.5 14.3188C1.5 14.0427 1.72386 13.8188 2 13.8188H14C14.2761 13.8188 14.5 14.0427 14.5 14.3188C14.5 14.595 14.2761 14.8188 14 14.8188H2C1.72386 14.8188 1.5 14.595 1.5 14.3188Z" fill="#292929"></path>

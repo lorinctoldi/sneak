@@ -1,64 +1,126 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { MenuContainer, MenuInner, Left, LeftTop, LeftTopOptions, LeftBottom, LeftBottomOptions, Right, RightTop, RightBottom} from './style/menu.styled'
 
-const Menu = () => {
+const Menu = ({menuStatus, setMenuStatus}) => {
 
-    const data = [
-        {
-            title: 'men new in', 
-            options: []
-        },
-        {
-            title: 'men collection', 
-            options: [
-                {title: 'Jackets and Puffers'},
-                {title: 'Leather Jackets'},
-                {title: 'Blazers and Overshirts'},
-                {title: 'Sweaters'},
-                {title: 'Cardigans'},
-                {title: 'Shirts'},
-                {title: 'Poolo Shirts & T-Shirts'},
-                {title: 'Trousers'},
-                {title: 'Jeans'},
-                {title: 'Formal wear'},
-                {title: 'Formal shirts'},
-                {title: 'Shoes'},
-                {title: 'Accessories'},
-                {title: 'Pyjamas & Underwear'},
-                {title: 'Perfumes & Body Care'},
-                {title: 'Join Life'},
-            ]
-        },
-        {
-            title: 'men sale', 
-            options: [
-                {title: 'Up to -60%'},
-                {title: 'Coats & Jackets'},
-                {title: 'Blazers'},
-                {title: 'Jumpers & Cardigans'},
-                {title: 'Shirts'},
-                {title: 'Polo Shirts & T-Shirts'},
-                {title: 'Trousers'},
-                {title: 'Suits'},
-                {title: 'Footwear, Accessories and Homewear'},
-            ]
-        },
-        {
-            title: 'men new in', 
-            options: []
-        },
-        {
-            title: '',
-            options: []
-        }
-    ]
+    const data = {
+        men: [
+            {
+                title: 'new in', 
+                options: []
+            },
+            {
+                title: 'collection', 
+                options: [
+                    {title: 'Jackets and Puffers'},
+                    {title: 'Leather Jackets'},
+                    {title: 'Blazers and Overshirts'},
+                    {title: 'Sweaters'},
+                    {title: 'Cardigans'},
+                    {title: 'Shirts'},
+                    {title: 'Poolo Shirts & T-Shirts'},
+                    {title: 'Trousers'},
+                    {title: 'Jeans'},
+                    {title: 'Formal wear'},
+                    {title: 'Formal shirts'},
+                    {title: 'Shoes'},
+                    {title: 'Accessories'},
+                    {title: 'Pyjamas & Underwear'},
+                    {title: 'Perfumes & Body Care'},
+                    {title: 'Join Life'},
+                ]
+            },
+            {
+                title: 'sale', 
+                options: [
+                    {title: 'Up to -60%'},
+                    {title: 'Coats & Jackets'},
+                    {title: 'Blazers'},
+                    {title: 'Jumpers & Cardigans'},
+                    {title: 'Shirts'},
+                    {title: 'Polo Shirts & T-Shirts'},
+                    {title: 'Trousers'},
+                    {title: 'Suits'},
+                    {title: 'Footwear, Accessories and Homewear'},
+                ]
+            },
+            {
+                title: '',
+                options: []
+            }
+        ],
+        women: [
+            {
+                title: 'new in', 
+                options: []
+            },
+            {
+                title: 'collection', 
+                options: [
+                    {title: 'Jackets and Puffers'},
+                    {title: 'Leather Jackets'},
+                    {title: 'Blazers and Overshirts'},
+                    {title: 'Sweaters'},
+                    {title: 'Cardigans'},
+                    {title: 'Shirts'},
+                    {title: 'Poolo Shirts & T-Shirts'},
+                    {title: 'Trousers'},
+                    {title: 'Jeans'},
+                    {title: 'Formal wear'},
+                    {title: 'Formal shirts'},
+                    {title: 'Shoes'},
+                    {title: 'Accessories'},
+                    {title: 'Pyjamas & Underwear'},
+                    {title: 'Perfumes & Body Care'},
+                    {title: 'Join Life'},
+                ]
+            },
+            {
+                title: 'sale', 
+                options: [
+                    {title: 'Up to -60%'},
+                    {title: 'Coats & Jackets'},
+                    {title: 'Blazers'},
+                    {title: 'Jumpers & Cardigans'},
+                    {title: 'Shirts'},
+                    {title: 'Polo Shirts & T-Shirts'},
+                    {title: 'Trousers'},
+                    {title: 'Suits'},
+                    {title: 'Footwear, Accessories and Homewear'},
+                ]
+            },
+            {
+                title: '',
+                options: []
+            }
+        ]
+    }
+
+    const categories = Object.keys(data)
+
+    const [category, setCategory] = useState(categories[0])
     const [choosen, setChoosen] = useState(0)
     const [animation, setAnimation] = useState(1)
+    const [animation2, setAnimation2] = useState(1)
+
+    function changeCategory(cat) {
+        if(cat != category) {
+            setAnimation('hideCategoryList')
+            setAnimation2('hideMdMenu')
+            setTimeout(() => {
+                setCategory(cat)
+                setChoosen(0)
+                setAnimation('showCategoryList')
+                setAnimation2('showMdMenu')
+            }, 600);
+        }
+    }
 
     function changeOptions(index) {
         if(choosen === index) {
-            setChoosen(data.length - 1)
+            setChoosen(data[category].length - 1)
         } else {
             setAnimation('hideCategoryList')
             setTimeout(() => {
@@ -70,11 +132,11 @@ const Menu = () => {
 
   return (
     <>
-        <MenuContainer>
+        <MenuContainer style={{animationName: menuStatus ? 'openMenu' : 'closeMenu'}}>
             <MenuInner>
                 <Left>
                     <LeftTop>
-                        <button>
+                        <button onClick={() => setMenuStatus(!menuStatus)}>
                             <span>
                                 <div>
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,20 +147,23 @@ const Menu = () => {
                         </button>
                         <div>
                             <LeftTopOptions>
-                                <div>
-                                    Women
-                                </div>
-                                <div>
-                                    Men
-                                    <span />
-                                </div>
+                                {
+                                    categories.map((cat, index)=> {
+                                        return (
+                                            <div key={index} onClick={() => changeCategory(cat)}>
+                                                {cat}
+                                                <span style={{width: cat.toLowerCase() == category.toLowerCase() ? '' : '0'}}></span>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </LeftTopOptions>
                         </div>
                     </LeftTop>
-                    <LeftBottom>
+                    <LeftBottom style={{animationName: animation2}}>
                         <ul>
                             {
-                                data.map((obj, index) => {
+                                data[category].map((obj, index) => {
                                     return (
                                         <div 
                                             key={index} 
@@ -113,9 +178,9 @@ const Menu = () => {
                                                     {obj.title}
                                                     <span style={{width: choosen == index ? '100%' : '0px'}}></span>
                                             </li>
-                                            <LeftBottomOptions style={{maxHeight: choosen == index ? 'max-content' : 0}}>
+                                            <LeftBottomOptions style={{maxHeight: choosen == index ? 'min-content' : 0}}>
                                                 <ul>
-                                                    {data[choosen].options.map(obj => {
+                                                    {data[category][choosen].options.map(obj => {
                                                         return (
                                                             <li>
                                                                 {obj.title}
@@ -143,7 +208,7 @@ const Menu = () => {
                     <RightBottom style={{animationName: animation}}>
                         <div>
                             <ul>
-                                {data[choosen].options.map(obj => {
+                                {data[category][choosen].options.map(obj => {
                                     return (
                                         <li>
                                             {obj.title}
