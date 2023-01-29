@@ -1,9 +1,14 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MenuContainer, MenuInner, Left, LeftTop, LeftTopOptions, LeftBottom, LeftBottomOptions, Right, RightTop, RightBottom} from './style/menu.styled'
 
 const Menu = ({menuStatus, setMenuStatus}) => {
+    useEffect(() => {
+        if(menuStatus) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+    }, [menuStatus])
 
     const data = {
         men: [
@@ -200,7 +205,7 @@ const Menu = ({menuStatus, setMenuStatus}) => {
                     <RightTop>
                         <div>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41658 1.5C4.13384 1.5 1.5 4.07393 1.5 7.21585C1.5 10.3578 4.13384 12.9317 7.41658 12.9317C10.6993 12.9317 13.3332 10.3578 13.3332 7.21585C13.3332 4.07393 10.6993 1.5 7.41658 1.5ZM0.5 7.21585C0.5 3.49193 3.61176 0.5 7.41658 0.5C11.2214 0.5 14.3332 3.49193 14.3332 7.21585C14.3332 10.9398 11.2214 13.9317 7.41658 13.9317C3.61176 13.9317 0.5 10.9398 0.5 7.21585ZM12.3215 12.4055C12.5137 12.2072 12.8302 12.2022 13.0286 12.3943L15.3475 14.6407C15.5459 14.8329 15.5509 15.1494 15.3588 15.3477C15.1666 15.5461 14.8501 15.5511 14.6518 15.359L12.3328 13.1125C12.1344 12.9204 12.1294 12.6039 12.3215 12.4055Z" fill="#292929"></path>
+                                <path fillRule="evenodd" clipRule="evenodd" d="M7.41658 1.5C4.13384 1.5 1.5 4.07393 1.5 7.21585C1.5 10.3578 4.13384 12.9317 7.41658 12.9317C10.6993 12.9317 13.3332 10.3578 13.3332 7.21585C13.3332 4.07393 10.6993 1.5 7.41658 1.5ZM0.5 7.21585C0.5 3.49193 3.61176 0.5 7.41658 0.5C11.2214 0.5 14.3332 3.49193 14.3332 7.21585C14.3332 10.9398 11.2214 13.9317 7.41658 13.9317C3.61176 13.9317 0.5 10.9398 0.5 7.21585ZM12.3215 12.4055C12.5137 12.2072 12.8302 12.2022 13.0286 12.3943L15.3475 14.6407C15.5459 14.8329 15.5509 15.1494 15.3588 15.3477C15.1666 15.5461 14.8501 15.5511 14.6518 15.359L12.3328 13.1125C12.1344 12.9204 12.1294 12.6039 12.3215 12.4055Z" fill="#292929"></path>
                             </svg>
                             <input type="search" placeholder='What are you looking for?' />
                         </div>

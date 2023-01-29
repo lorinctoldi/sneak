@@ -11,7 +11,7 @@ export const Controls = styled.div`
     margin-top: 8px;
     position: absolute;
     right: 16px;
-    z-index: 1000;
+    z-index: 10;
 
     button {
         display: inline-block;

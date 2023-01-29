@@ -24,9 +24,16 @@ export const Left = styled.div`
     display: flex;
     align-items: center;
     flex: 1;
+    cursor: pointer;
 
     div:nth-child(1) {
         padding-right: 24px;
+        cursor: pointer;
+        transition: all .3s;
+        
+        &:hover {
+            opacity: .6;
+        }
     }
 
     @media (max-width: 767px) {
