@@ -8,6 +8,7 @@ export const MenuContainer = styled.div`
     right: 0;
     width: 100vw;
     min-height: 100vh;
+    height: 100vh;
     background: rgb(255,255,255);
     animation-timing-function: cubic-bezier(.165,.84,.44,1);
     animation: .5s ease forwards;
@@ -139,6 +140,7 @@ export const LeftBottom = styled.div`
     overflow: auto;
     animation: appearmdmenu .5s ease forwards;
     animation-timing-function: cubic-bezier(.165,.84,.44,1);
+    padding-bottom: 30vh;
     
 
     ul {
@@ -296,6 +298,7 @@ export const RightTop = styled.div`
         padding: 16px;
         margin-bottom: 16px;
         height: 40px;
+        opacity: 1;
 
         div {
             height: 40px;
