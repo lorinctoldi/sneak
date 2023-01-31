@@ -62,6 +62,7 @@ const Video = () => {
                                     loop 
                                     src={VideoSource}
                                     ref={videoRef}
+                                    controls={false}
                                 />
                             </VideoContainer>
                         </Player>

@@ -37,6 +37,18 @@
     src: url("../assets/fonts/dutti-extended-extrabold.woff2") format("woff2"),url("../assets/fonts/dutti-extended-extrabold.woff") format("woff")
 }
 
+@font-face {
+    font-family: 'FontDutti';
+    src: url("../assets/fonts/FontDutti.eot") format("eot");
+    src: url("../assets/fonts/FontDutti.eot") format("embedded-opentype"),
+        url("../assets/fonts/FontDutti.woff") format("woff"),
+        url("../assets/fonts/FontDutti.ttf") format("truetype"),
+        url("../assets/fonts/FontDutti.svg") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+
 @keyframes openMenu {
     0% {
         visibility: visible;
@@ -161,6 +173,8 @@ body {
     left: 0px;
     transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 *, ::after, ::before {

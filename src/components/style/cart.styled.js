@@ -26,6 +26,7 @@ export const CloseIcon = styled.div`
     position: absolute;
     right: 0;
     cursor: pointer;
+    z-index: 2;
 
     div {
         position: relative;

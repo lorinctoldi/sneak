@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import Account from './Account'
 import Cart from './Cart'
 import Menu from './Menu'
 
@@ -9,10 +10,12 @@ const Navbar = () => {
 
     const [menuStatus, setMenuStatus] = useState(false)
     const [cartStatus, setCartStatus] = useState(false)
+    const [accountStatus, setAccountStatus] = useState(false)
   return (
     <>
         <Menu menuStatus={menuStatus} setMenuStatus={setMenuStatus} />
         <Cart cartStatus={cartStatus} setCartStatus={setCartStatus} />
+        <Account accountStatus={accountStatus} setAccountStatus={setAccountStatus} />
 
         <Nav style={{opacity: menuStatus ? 0 : 1, transition: 'all 700ms'}}>
             <Left onClick={() => setMenuStatus(!menuStatus)} >
@@ -58,9 +61,9 @@ const Navbar = () => {
                         </button>
                     </li>
                     <li>
-                        <button>
+                        <button onClick={() => setAccountStatus(!accountStatus)}>
                             <span>
-                                My Account
+                                Log in
                             </span>
                             <SmallIcon>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
