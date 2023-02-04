@@ -1,16 +1,18 @@
-import React from 'react'
-
 import { Page } from './style/contact.styled'
+import { Navbar } from '../components'
 
 const Contact = () => {
   return (
-    <Page>
-        <div>
-            <h1>Contact</h1>
-            For any questions or inquiries contact us at - contact@<span>sneakinpeace.com</span> <br />
-            or send a message via the <b>Live Chat</b> below.
-        </div>
-    </Page>
+    <>
+      <Navbar />
+      <Page>
+          <div>
+              <h1>Contact</h1>
+              For any questions or inquiries contact us at - contact@<span>sneakinpeace.com</span> <br />
+              or send a message via the <b>Live Chat</b> below.
+          </div>
+      </Page>
+    </>
   )
 }
 

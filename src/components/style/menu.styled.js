@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MenuContainer = styled.div`
     position: fixed; 
-    z-index: 10000;
+    z-index: -1000;
     top: 0;
     left: 0;
     right: 0;
@@ -12,7 +12,6 @@ export const MenuContainer = styled.div`
     background: rgb(255,255,255);
     animation-timing-function: cubic-bezier(.165,.84,.44,1);
     animation: .5s ease forwards;
-
 `
 
 export const MenuInner = styled.div`

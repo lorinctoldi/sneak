@@ -1,11 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-
 import VideoSource from '../assets/video/video.mp4'
 
 import { Cards, Navbar } from '../components'
 import { VideoContainer, Inner, Tags, Tag, CardContainer} from './style/blog.styled'
-
 
 const Blog = () => {
   return (

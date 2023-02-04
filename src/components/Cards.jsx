@@ -185,10 +185,10 @@ const Cards = ({ align }) => {
         <CardsElement>
             <Controls>
                 <button id='left-btn'>
-                    <img src="//cdn.shopify.com/s/files/1/0493/5663/6318/t/282/assets/chevron-left-arrow.svg?v=21978663874862931721661426272" alt="" />
+                    <img src="https://cdn.shopify.com/s/files/1/0493/5663/6318/t/291/assets/chevron-left-arrow.svg?v=21978663874862931721674664135" alt="" />
                 </button>
                 <button id='right-btn'>
-                    <img src="//cdn.shopify.com/s/files/1/0493/5663/6318/t/282/assets/chevron-right-arrow.svg?v=17831087407461201331661426272" alt="" />
+                    <img src="https://cdn.shopify.com/s/files/1/0493/5663/6318/t/291/assets/chevron-right-arrow.svg?v=17831087407461201331674664135" alt="" />
                 </button>
             </Controls>
             <Container id='container' align={align}>
@@ -202,7 +202,7 @@ const Cards = ({ align }) => {
                                             card.videoTag ?
                                             <Tag>
                                                 <div>
-                                                    <img src="//cdn.shopify.com/s/files/1/0493/5663/6318/t/282/assets/video-shopping-play.svg?v=61428209253112044641661426371" alt="" />
+                                                    <img src="https://cdn.shopify.com/s/files/1/0493/5663/6318/t/291/assets/play-circle-fill.svg?v=17117829515266547551674756472" alt="" />
                                                 </div>
                                                 Watch & Shop
                                             </Tag>

@@ -4,7 +4,7 @@ export const VideoContainer = styled.div`
 background: #fff;
 display: block;
 height: 80vh;
-padding: 8px 8px 0;
+padding: 74px 8px 0;
 position: relative;
 width: 100%;
 
@@ -109,8 +109,8 @@ white-space: nowrap;
 
 @media (max-width: 767px) {
   position: sticky;
-  top: 0;
-  z-index: 1010;
+  top: 48px;
+  z-index: 1;
 }
 `
 

@@ -185,9 +185,9 @@ const Menu = ({menuStatus, setMenuStatus}) => {
                                             </li>
                                             <LeftBottomOptions style={{maxHeight: choosen == index ? 'min-content' : 0}}>
                                                 <ul>
-                                                    {data[category][choosen].options.map(obj => {
+                                                    {data[category][choosen].options.map((obj, index) => {
                                                         return (
-                                                            <li>
+                                                            <li key={index}>
                                                                 {obj.title}
                                                             </li>
                                                         )}
@@ -213,9 +213,9 @@ const Menu = ({menuStatus, setMenuStatus}) => {
                     <RightBottom style={{animationName: animation}}>
                         <div>
                             <ul>
-                                {data[category][choosen].options.map(obj => {
+                                {data[category][choosen].options.map((obj, index) => {
                                     return (
-                                        <li>
+                                        <li key={index}>
                                             {obj.title}
                                         </li>
                                     )}

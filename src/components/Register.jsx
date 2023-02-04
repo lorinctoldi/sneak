@@ -72,9 +72,9 @@ const Register = ({ registerStatus, setRegisterStatus }) => {
               </div>
             </InputContainer>
             {
-              Object.keys(fillers).map(obj => {
+              Object.keys(fillers).map((obj, index) => {
                 return (
-                  <InputRow filled={fillers[obj]}>
+                  <InputRow key={index} filled={fillers[obj]}>
                     <div>
                       <input type={obj.toLowerCase()} onChange={(e) => handleInput(e)} data-tag={obj} required="" />
                       <label>{obj}</label>

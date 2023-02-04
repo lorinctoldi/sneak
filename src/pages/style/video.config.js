@@ -1,5 +1,13 @@
 import styled from "styled-components"
 
+export const Container = styled.div`
+    padding-top: 72px;
+
+    @media (max-width: 992px) {
+        padding-top: 50px;
+    }
+`
+
 export const Upper = styled.div`
     display: flex;
     position: relative;
