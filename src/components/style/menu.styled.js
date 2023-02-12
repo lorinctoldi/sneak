@@ -253,6 +253,7 @@ export const RightTop = styled.div`
     align-content: center;
     align-items: center;
     margin-bottom: 48px;
+    z-index: 2;
 
     div {
         width: 100%;
@@ -272,6 +273,7 @@ export const RightTop = styled.div`
         border: none;
         width: 100%;
         background: transparent;
+        background: rgb(242,242,242);
         box-sizing: content-box;
         -webkit-appearance: textfield;
         color: inherit;

@@ -48,6 +48,11 @@
     src: url("../assets/fonts/DuttiW-SemiBold.woff2") format("woff2"),url("../assets/fonts/DuttiW-SemiBold.woff") format("woff")
 }
 
+@font-face {
+    font-family: 'HelveticaNeueLTPro-Roman';
+    src: url("../assets/fonts/DuttiW-Medium.woff2") format("woff2"),url("../assets/fonts/DuttiW-Medium.woff") format("woff")
+}
+
 @keyframes openMenu {
     0% {
         visibility: visible;
@@ -160,6 +165,21 @@
         opacity: 0;
     }
 }
+
+@keyframes result {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(40px)
+    }
+
+    to {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1
+    }
+}
+
 
 body {
     margin: 0;
