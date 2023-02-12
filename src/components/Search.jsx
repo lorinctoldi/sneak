@@ -305,7 +305,7 @@ const Search = ({ searchStatus, setSearchStatus }) => {
         
         if(window.innerWidth <= 1024) {
             var currentScrollPos = ref.current.scrollTop;
-            if (prevScrollpos - 5 > currentScrollPos) {
+            if (prevScrollpos + 5 > currentScrollPos) {
                 setHeaderPosition(0)
             } else {
                 setHeaderPosition(-100)
