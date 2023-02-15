@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Section, Header, SearchBar, Container, Inner, Row, InnerRow, CloseIcon, FilterContainer, DesktopFilter, SearchOption, Results, HeaderMobile } from './style/search.styled'
+import { Section, Header, SearchBar, Container, Inner, Row, InnerRow, CloseIcon, FilterContainer, DesktopFilter, SearchOption, Results, HeaderMobile, CloseIconSmall } from './style/search.styled'
 
 const Search = ({ searchStatus, setSearchStatus }) => {
     useEffect(() => {
@@ -291,6 +291,7 @@ const Search = ({ searchStatus, setSearchStatus }) => {
     const ref = useRef(null);
 
     const [headerPosition, setHeaderPosition] = useState(0)
+    const [closePosition, setClosePosition] = useState(0)
     const [prevScrollpos, setPrevScrollpos] = useState(0)
 
     function handleScroll() {
@@ -305,10 +306,12 @@ const Search = ({ searchStatus, setSearchStatus }) => {
         
         if(window.innerWidth <= 1024) {
             var currentScrollPos = ref.current.scrollTop;
-            if (prevScrollpos + 5 > currentScrollPos) {
+            if (prevScrollpos > currentScrollPos) {
                 setHeaderPosition(0)
+                setClosePosition(5)
             } else {
                 setHeaderPosition(-100)
+                setClosePosition(-50)
             }
             setPrevScrollpos(currentScrollPos)
         }
@@ -330,14 +333,18 @@ const Search = ({ searchStatus, setSearchStatus }) => {
         {
             searchStatus ? 
             <>
-                <CloseIcon onClick={() => setSearchStatus(false)}>
-                    <div>
-                    <svg height="1em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 10,10 L 90,90"></path>
-                        <path d="M 90,10 L 10,90"></path>
-                    </svg>
-                    </div>
-                </CloseIcon>
+                {
+                    searchVal.length == 0 ?
+                    <CloseIcon onClick={() => setSearchStatus(false)}>
+                        <div>
+                        <svg height="1em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 10,10 L 90,90"></path>
+                            <path d="M 90,10 L 10,90"></path>
+                        </svg>
+                        </div>
+                    </CloseIcon>
+                    : ''
+                }
                     <Header style={{marginTop: `${headerPosition}px`}}>
                         <SearchBar>
                             <svg height='24px' width='24px' viewBox="0 0 32 32" style={{fill: '#292929'}}>
@@ -355,23 +362,42 @@ const Search = ({ searchStatus, setSearchStatus }) => {
                                 }
                             </div>
                         </SearchBar>
+
+                        {
+                            searchVal.length > 0 ?
+                            <CloseIconSmall style={{top: closePosition ? `${closePosition}px` : ''}} onClick={() => setSearchStatus(false)}>
+                                <div>
+                                <svg height="1em" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M 10,10 L 90,90"></path>
+                                    <path d="M 90,10 L 10,90"></path>
+                                </svg>
+                                </div>
+                            </CloseIconSmall>
+                            :
+                            ''
+                        }
                     </Header>
-                    <HeaderMobile>
-                        <div>
-                            <button>
-                                <span>
-                                    Sort by
-                                </span>
-                            </button>
-                        </div>
-                        <div>
-                            <button>
-                                <span>
-                                    Delete
-                                </span>
-                            </button>
-                        </div>
-                    </HeaderMobile>
+                    {
+                        searchVal.length > 0 ?
+                        <HeaderMobile>
+                            <div>
+                                <button>
+                                    <span>
+                                        Sort by
+                                    </span>
+                                </button>
+                            </div>
+                            <div>
+                                <button>
+                                    <span>
+                                        Delete
+                                    </span>
+                                </button>
+                            </div>
+                        </HeaderMobile>
+                        :
+                        ''
+                    }
                 <Container>
                     <aside>
                             <FilterContainer style={{width: searchVal.length > 0 ? '100%' : '0px'}}>
@@ -440,43 +466,45 @@ const Search = ({ searchStatus, setSearchStatus }) => {
                                 }
                             </Results>
                             :
-                            data.map((row, index) => {
-                                return (
-                                    <Inner key={index} style={{opacity: searchStatus ? 1 : 0, transitionDelay: searchStatus ? `${300 * (index + 1)}ms` : `${100 * index}ms`}}>
-                                        <aside>
-                                            <header>
-                                                <h1>Top trend searches</h1>
-                                            </header>
-                                            <Row>
-                                                <aside>
-                                                    <InnerRow>
-                                                        <div>
-                                                            {
-                                                                row.map((res, index) => {
-                                                                    return (
-                                                                        <article key={index}>
-                                                                            <section>
-                                                                                <img alt='' src={res.img} />
-                                                                            </section>
-                                                                            <h1>Mock neck knit sweater with a zip</h1>
-                                                                            <div>
-                                                                                <strong>27,995 Ft</strong>
+                            <div style={{opacity: searchVal.length > 0 ? 0 : 1, transition: 'all .3s ease-out'}} >
+                                {data.map((row, index) => {
+                                    return (
+                                        <Inner key={index} style={{opacity: searchStatus ? 1 : 0, transitionDelay: searchStatus ? `${300 * (index + 1)}ms` : `${100 * index}ms`}}>
+                                            <aside>
+                                                <header>
+                                                    <h1>Top trend searches</h1>
+                                                </header>
+                                                <Row>
+                                                    <aside>
+                                                        <InnerRow>
+                                                            <div>
+                                                                {
+                                                                    row.map((res, index) => {
+                                                                        return (
+                                                                            <article key={index}>
+                                                                                <section>
+                                                                                    <img alt='' src={res.img} />
+                                                                                </section>
+                                                                                <h1>Mock neck knit sweater with a zip</h1>
                                                                                 <div>
-                                                                                    <strong>17,995 Ft</strong>
+                                                                                    <strong>27,995 Ft</strong>
+                                                                                    <div>
+                                                                                        <strong>17,995 Ft</strong>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </div>
-                                                    </InnerRow>
-                                                </aside>
-                                            </Row>
-                                        </aside>
-                                    </Inner>
-                                )
-                            })
+                                                                            </article>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </div>
+                                                        </InnerRow>
+                                                    </aside>
+                                                </Row>
+                                            </aside>
+                                        </Inner>
+                                    )
+                                })}
+                            </div>
                         }
                     </main>
                 </Container>

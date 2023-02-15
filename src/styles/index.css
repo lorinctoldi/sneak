@@ -194,10 +194,14 @@ body {
     -webkit-transition: all 0.3s ease;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 *, ::after, ::before {
     box-sizing: border-box;
+    webkit-overflow-scrolling: auto;
 }
 
 div {

@@ -580,6 +580,39 @@ export const CloseIcon = styled.div`
     }
 `
 
+export const CloseIconSmall = styled.div`
+    padding: 10px 10px;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;    
+    position: fixed;
+    z-index: 100;
+    transition: all .3s ease-out;
+
+    div {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    svg {    
+        width: 16px;
+        height: 18px;
+        overflow: hidden;
+        fill: #000;
+        stroke-width: 8px;
+        stroke-linecap: round;
+        stroke: currentColor;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 10px 0px;
+        top: 5px;
+        z-index: 10;
+    }
+`
+
 export const FilterContainer = styled.div`
     height: 100%; 
     overflow-x: hidden;
@@ -906,10 +939,14 @@ export const Results = styled.section`
     margin: -5px;
     max-height: 100%;
     overflow: scroll;
+    transition: all .3s ease-out;
+    webkit-overflow-scrolling: auto;
 
     @media (max-width: 1024px) {
         margin: 0 !important;
         min-height: 734px;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
     }
 
     article {
