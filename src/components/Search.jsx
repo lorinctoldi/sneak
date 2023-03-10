@@ -127,7 +127,6 @@ const Search = ({ searchStatus, setSearchStatus }) => {
     ])
 
     const showMore = (i) => {
-        console.log(i)
         const updateFilterData = [...filterData]
         updateFilterData[i].hidden = !updateFilterData[i].hidden
         setFilterData(updateFilterData)
@@ -298,7 +297,6 @@ const Search = ({ searchStatus, setSearchStatus }) => {
         if(ref.current) {
             let element = ref.current
             if(Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) < 1) {
-                console.log(resultIndex + 1)
                 setResultIndex(resultIndex + 1)
             }
         }
@@ -318,6 +316,7 @@ const Search = ({ searchStatus, setSearchStatus }) => {
     }
 
     function handleSearch(e) {
+        console.log(e.target.value)
         if(e.target.value.length > 0) {
             setSearchVal(e.target.value)
         } else {
@@ -387,7 +386,7 @@ const Search = ({ searchStatus, setSearchStatus }) => {
                                     </span>
                                 </button>
                             </div>
-                            <div>
+                            <div onClick={() => setSearchVal('')}>
                                 <button>
                                     <span>
                                         Delete
@@ -440,31 +439,33 @@ const Search = ({ searchStatus, setSearchStatus }) => {
                         <aside></aside>
                         {
                             searchVal.length > 0 ?
-                            <Results onScroll={handleScroll} ref={ref}>
-                                {
-                                    searchResults.map((object, index) => {
-                                        if(index < 12 * resultIndex) {
-                                            return (
-                                                <article style={{animationDelay: `${((index + 1) % 12) * 100 + 300}ms`}} key={index}>
-                                                    <div>
-                                                        <a href="">
-                                                            <section>
-                                                                <img src={object.img} alt="" />
-                                                            </section>
-                                                            <h1>{object.title}</h1>
-                                                            <div>
+                            <>
+                                <Results onScroll={handleScroll} ref={ref}>
+                                    {
+                                        searchResults.map((object, index) => {
+                                            if(index < 12 * resultIndex) {
+                                                return (
+                                                    <article style={{animationDelay: `${((index + 1) % 12) * 100 + 300}ms`}} key={index}>
+                                                        <div>
+                                                            <a href="">
+                                                                <section>
+                                                                    <img src={object.img} alt="" />
+                                                                </section>
+                                                                <h1>{object.title}</h1>
                                                                 <div>
-                                                                    <strong>{object.price}</strong>
+                                                                    <div>
+                                                                        <strong>{object.price}</strong>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </article>
-                                            )
-                                        }
-                                    })
-                                }
-                            </Results>
+                                                            </a>
+                                                        </div>
+                                                    </article>
+                                                )
+                                            }
+                                        })
+                                    }
+                                </Results>
+                            </>
                             :
                             <div style={{opacity: searchVal.length > 0 ? 0 : 1, transition: 'all .3s ease-out'}} >
                                 {data.map((row, index) => {

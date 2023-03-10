@@ -9,7 +9,7 @@ import {
   Link
 } from "react-router-dom";
 
-import { Home, Blog, Video, Contact, About } from './pages'
+import { Home, Blog, Video, Contact, About, Products } from './pages'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +42,12 @@ const router = createBrowserRouter([
       <About />
     )
   },
+  {
+    path: 'products',
+    element: (
+      <Products />
+    )
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

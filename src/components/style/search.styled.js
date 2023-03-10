@@ -240,6 +240,7 @@ export const SearchBar = styled.div`
         margin: 0;
         height: 50px;
         padding: 14px 20px 15px;
+        margin-right: 20px;
         width: 100%;
         border-bottom: 1px solid #eaeaea;
         align-items: center;
@@ -946,7 +947,6 @@ export const Results = styled.section`
         margin: 0 !important;
         min-height: 734px;
         margin-bottom: 30px;
-        padding-bottom: 30px;
     }
 
     article {
