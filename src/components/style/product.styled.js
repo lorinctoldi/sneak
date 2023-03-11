@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const Hover = styled.div`
     width: 100vw; 
@@ -143,14 +143,15 @@ export const Description = styled.div`
     line-height: 22px;
 
     div {
-        max-height: 100px;
+        max-height: ${props => props.readState ? '100vh' : '100px'};
         position: relative;
         overflow: hidden;
-        height: 140px;
         transition: unset;
         font-size: 16px;
         margin-bottom: 50px;
+        padding-bottom: 20px;
         line-height: 22px;
+        transition: all .5s cubic-bezier(0, 1, 0, 1);
 
         &::after {
             content: "";

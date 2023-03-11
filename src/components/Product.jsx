@@ -10,6 +10,8 @@ const Product = () => {
 
     function close() {
         setChangeState(false)
+        setZoomState(false)
+        setReadState(false)
         setTimeout(() => {
             dispatch(change())
         }, 400);
@@ -26,6 +28,8 @@ const Product = () => {
     useEffect(() => {
         if(product_display) setChangeState(true)
     }, [product_display])
+
+    const [readState, setReadState] = useState(false)
 
 
   return (
@@ -56,11 +60,11 @@ const Product = () => {
                             <span>
                                 £870
                             </span>
-                            <Description>
+                            <Description readState={readState}>
                                 <div>
-                                    The men's Dior Warp sandals features drawstring cord with CD Diamond cord-stop closure,&nbsp;mint green rubber insole, sculpted rubber Cannage outsole, and welded construction. Made in Italy.
+                                The B713 sneaker is part of the exclusive collaboration with CACTUS JACK and combines the codes of a '90s skate shoe with the couture spirit of the House. The limited and numbered edition style is distinguished by its mix of materials combining grained calfskin, technical mesh and nubuck calfskin. The B713 is further embellished by thick, retro-style laces and an ultralight two-tone sole. There is a contrasting CACTUS JACK DIOR signature on the side and heel, while the 'CD Diamond' signature is featured on the tongue, eyelets and sole. The low-top sneaker will enhance any casual outfit and can be combined with other CACTUS JACK DIOR creations.
                                 </div>
-                                <p>Read more</p>
+                                <p onClick={() => setReadState(!readState)}>{readState ? 'Read less' : 'Read more'}</p>
                             </Description>
                         </Info>
                             <ShopButton>
