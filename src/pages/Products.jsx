@@ -3,7 +3,11 @@ import { Navbar, Product } from '../components'
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux'
+import { change } from '../redux/productDisplay'
+
 const Products = () => {
+  const dispatch = useDispatch()
 
   const data = [
     {
@@ -97,7 +101,7 @@ const Products = () => {
           displayData.map((object, index) => {
             if(object.img) {
                 return (
-                  <Card>
+                  <Card onClick={() => dispatch(change())}>
                     <Inner >
                       <Upper style={{animationDelay: `${index % 9 * 200}ms`}}>
                         <ImageContainer>

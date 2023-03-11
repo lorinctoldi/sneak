@@ -13,22 +13,22 @@ export const Hover = styled.div`
     opacity: ${props => props.displayState ? 1 : 0};
     visibility: ${props => props.displayState ? 'visible' : 'hidden'};
     transition: .4s all;
-
-
-    ${props => console.log(props.displayState)}
 `
 
 export const Container = styled.div`
     min-height: 100vh;
     background: #f0eeed;
     overflow: scroll;
-    right: 0;
+    right: ${props => props.displayState ? '0px' : '-90vw'};
     max-width: 75vw;
     position: fixed;
     color: #262626;
     height: 100%;
     border-radius: 6px 0 0 6px;
     width: 90vw;
+    transition: all .5s ease;
+    top: 0;
+    z-index:1001;
 
     @media (max-width: 1024px) {
         max-width: 1200px;
@@ -37,6 +37,8 @@ export const Container = styled.div`
     @media (max-width: 767px) {
         max-width: none;
         width: 100vw;
+        right: 0px;
+        top: ${props => props.displayState ? '0px' : '100vh'};
     }
 `
 
@@ -234,7 +236,7 @@ export const ShopButton = styled.div`
 export const Close = styled.div`
     position: fixed;
     top: 20px;
-    right: ${props => props.zoomed ? '-100px' : '20px'};
+    right: ${props => props.displayState ? props.zoomed ? '-100px' : '20px' : '-100px'};
     width: 38px;
     height: 38px;
     border-radius: 6px;
@@ -249,5 +251,10 @@ export const Close = styled.div`
         height: 12px;
         display: block;
         padding: 0px;
+    }
+
+    @media (max-width: 767px) {
+        top: ${props => props.displayState ? '20px' : '-50px'};
+        right: 20px;
     }
 `
